@@ -78,6 +78,12 @@ class ExampleUnitTest {
 
             verify { mockedObserver.onChanged(capture(slot)) }
             assertEquals(slot.captured[0].status,  "11 minutes")
+            assertEquals(slot.captured[0].imageUrl,  "sss.png")
+            assertEquals(slot.captured[0].subtitle,  "peruvian food")
+            assertEquals(slot.captured[0].title,  "la mar")
+
+
+
         }
 
     }
@@ -137,7 +143,7 @@ class ExampleUnitTest {
             val listRestaurantsViewModel = ListRestaurantsViewModel(restaurantsNetworkDataSource)
             val mockedObserver = createRestaurantListObserver()
             listRestaurantsViewModel.liveData.observeForever(mockedObserver)
-            
+
             //when
             listRestaurantsViewModel.loadMore(0, 20)
 

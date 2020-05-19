@@ -19,7 +19,6 @@ class RestaurantsNetworkDataSource {
     }
 
     suspend fun getListRestaurants(limit: Int, offset: Int) : List<DoorDashRestaurantAPIResponse>{
-        Log.d("xxx", ""+offset)
         return withContext(Dispatchers.IO) {
             doordashService.getListRestaurants(limit, offset)
             //handle error conditions
